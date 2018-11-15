@@ -21,6 +21,7 @@ pipeline {
     
 }
 */
+#!/usr/bin/env groovy
 node {
     checkout scm
     stage('Build1'){
