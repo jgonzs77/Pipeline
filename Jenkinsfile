@@ -30,10 +30,14 @@ node {
         }
     }
     stage('Test2') {
-        sh 'mvn test'
+        withMaven(maven:'Maven Test'){
+            sh 'mvn test'
+        }
         junit '**/target/*.xml'
     }
     stage('Deploy3') {
-        sh 'mvn package'
+        withMaven(maven:'Maven Test'){
+            sh 'mvn package'
+        }
     }
 }
