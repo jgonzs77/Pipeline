@@ -36,12 +36,13 @@ node {
         // junit '**/target/*.xml'
     }
     stage('Deploy3') {
-        withMaven(maven:'Maven Test'){
+        try{
+            withMaven(maven:'Maven Test'){
             sh 'mvn package'
-            
         } 
-        //sh 'rm -rf $WORKSPACE'
-        deleteDir()
+        }finally{
+            //sh 'rm -rf $WORKSPACE'
+            deleteDir()
+        }
     }
-   
 }
