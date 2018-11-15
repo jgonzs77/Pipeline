@@ -38,6 +38,10 @@ node {
     stage('Deploy3') {
         withMaven(maven:'Maven Test'){
             sh 'mvn package'
-        }
+            
+        } 
+        //sh 'rm -rf $WORKSPACE'
+        deleteDir()
     }
+   
 }
