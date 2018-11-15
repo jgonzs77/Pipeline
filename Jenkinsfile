@@ -22,13 +22,14 @@ pipeline {
 }
 */
 node {
+    checkout scm
     stage('Build1'){
-            echo 'Building..'
+            echo 'Hola Mundo1'
     }
     stage('Test2') {
-            echo 'Testing..'
+            echo 'Hola Mundo2'
     }
     stage('Deploy3') {
-            echo 'Deploying..'
+            echo 'Hola Mundo3'
     }
 }
