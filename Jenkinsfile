@@ -33,7 +33,7 @@ node {
         withMaven(maven:'Maven Test'){
             sh 'mvn test'
         }
-        junit '**/target/*.xml'
+        // junit '**/target/*.xml'
     }
     stage('Deploy3') {
         withMaven(maven:'Maven Test'){
