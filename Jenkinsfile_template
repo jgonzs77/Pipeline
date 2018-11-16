@@ -9,7 +9,9 @@ pipeline {
                    sh 'mvn package'
                 }
                 echo 'Maven Hello World'
-                fileOperations([fileCopyOperation(excludes: '', flattenFiles: false, includes: '/target/*.war ', targetLocation: '/var/lib/tomcat8/webapps/')])
+                sh 'cp target/*.war /var/lib/tomcat8/webapps/'
+                emailext body: 'correos pruebas pipeline hola mundo', subject: 'correos pruebas pipeline hola mundo', to: 'jorgegsazu@gmail.com'
+                 
 
 
             }
