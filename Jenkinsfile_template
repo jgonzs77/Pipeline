@@ -1,5 +1,30 @@
-/*
-node {
+pipeline {
+    agent any
+    stages {
+        stage('Paso 1') {
+            steps {
+                git 'https://github.com/efsavage/hello-world-war'
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Siempre'
+        }
+        success {
+            echo 'Exito'
+        }
+        failure {
+            echo 'Fallo'
+        }
+        changed {
+            echo 'Cambio'
+        }
+    }
+}
+
+
+/* node {
     try {
         stage('Test') {
             bat 'echo "Fallo!"; exit 0'
@@ -22,7 +47,7 @@ node {
         echo 'Se ejecuta siempre'
     }
 }
-*/
+
 
 pipeline {
     agent any
@@ -48,3 +73,4 @@ pipeline {
         }
     }
 }
+*/
