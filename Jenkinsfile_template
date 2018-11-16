@@ -5,6 +5,11 @@ pipeline {
             steps {
                 git 'https://github.com/efsavage/hello-world-war'
                 echo 'Git Hello World'
+                withMaven(maven: 'Maven Test') {
+                   sh 'mvn package'
+                }
+                echo 'Maven Hello World'
+
             }
         }
     }
