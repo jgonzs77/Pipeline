@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent {label 'principal' }
     stages {
         stage('Paso 1') {
             steps {
@@ -9,6 +9,8 @@ pipeline {
                    sh 'mvn package'
                 }
                 echo 'Maven Hello World'
+                fileOperations([fileCopyOperation(excludes: '', flattenFiles: false, includes: '/target/*.war ', targetLocation: '/var/lib/tomcat8/webapps/')])
+
 
             }
         }
