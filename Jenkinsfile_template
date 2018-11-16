@@ -29,7 +29,7 @@ pipeline {
     stages {
         stage('Paso 1') {
             steps {
-                //Mi operacion
+                bat 'echo "Fallo!"; exit 0'   //Mi operacion
             }
         }
     }
