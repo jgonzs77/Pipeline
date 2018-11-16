@@ -39,6 +39,8 @@ node {
         try{
             withMaven(maven:'Maven Test'){
             sh 'mvn package'
+            sh 'git add target'
+            sh 'git commit -am "OK" '
         } 
         }finally{
             //sh 'rm -rf $WORKSPACE'
